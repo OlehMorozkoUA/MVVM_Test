@@ -21,5 +21,18 @@ namespace MVVM_Test.ViewModels
             set => Set(ref _title, value);
         }
         #endregion
+
+        #region Status of window
+        private string _status = "Complete!";
+
+        /// <summary>
+        /// Status for window
+        /// </summary>
+        public string Status
+        {
+            get => _status;
+            set => Set(ref _status, value);
+        }
+        #endregion
     }
 }
