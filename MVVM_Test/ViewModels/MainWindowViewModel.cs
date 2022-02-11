@@ -1,9 +1,12 @@
-﻿using MVVM_Test.ViewModels.Base;
+﻿using MVVM_Test.Infrastructure.Commands;
+using MVVM_Test.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace MVVM_Test.ViewModels
 {
@@ -34,5 +37,29 @@ namespace MVVM_Test.ViewModels
             set => Set(ref _status, value);
         }
         #endregion
+
+        #region Cammands
+
+        #region CloseApplicationCommand
+        public ICommand CloseApplicationCommand { get; }
+
+        private void onCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool canCloseApplicationCommand(object p) => true;
+        #endregion
+
+        #endregion
+
+        public MainWindowViewModel()
+        {
+            #region Commands
+
+            CloseApplicationCommand = new LambdaCommand(onCloseApplicationCommandExecuted, canCloseApplicationCommand);
+
+            #endregion
+        }
     }
 }
