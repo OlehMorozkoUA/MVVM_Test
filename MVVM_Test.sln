@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM_Test", "MVVM_Test\MVVM_Test.csproj", "{8D798E1A-FFE0-4A61-BA17-8E91FD92B882}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVM_Test", "MVVM_Test\MVVM_Test.csproj", "{8D798E1A-FFE0-4A61-BA17-8E91FD92B882}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F7E9867F-2A36-4E50-90F8-C0B1CFDB4751}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{80EA8C7F-924A-4DC2-A8F0-33FFFD229702}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{8D798E1A-FFE0-4A61-BA17-8E91FD92B882}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{8D798E1A-FFE0-4A61-BA17-8E91FD92B882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D798E1A-FFE0-4A61-BA17-8E91FD92B882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80EA8C7F-924A-4DC2-A8F0-33FFFD229702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80EA8C7F-924A-4DC2-A8F0-33FFFD229702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80EA8C7F-924A-4DC2-A8F0-33FFFD229702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80EA8C7F-924A-4DC2-A8F0-33FFFD229702}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{80EA8C7F-924A-4DC2-A8F0-33FFFD229702} = {F7E9867F-2A36-4E50-90F8-C0B1CFDB4751}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2F8C9F39-09CA-4579-A960-3AD502FEE8FD}
