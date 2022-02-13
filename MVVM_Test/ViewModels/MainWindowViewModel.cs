@@ -1,4 +1,5 @@
 ﻿using MVVM_Test.Infrastructure.Commands;
+using MVVM_Test.Models;
 using MVVM_Test.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,21 @@ namespace MVVM_Test.ViewModels
 {
     internal class MainWindowViewModel : ViewModelBase
     {
+        #region TestDataPoint
+        /// <summary>
+        /// Test data
+        /// </summary>
+        private IEnumerable<DataPoint> _testDataPoint;
+        /// <summary>
+        /// Test data
+        /// </summary>
+        public IEnumerable<DataPoint> TestDataPoint
+        {
+            get => _testDataPoint;
+            set => Set(ref _testDataPoint, value);
+        }
+        #endregion
+
         #region Header of window
         private string _title = "Analysing of statistic";
 
@@ -60,6 +76,15 @@ namespace MVVM_Test.ViewModels
             CloseApplicationCommand = new LambdaCommand(onCloseApplicationCommandExecuted, canCloseApplicationCommand);
 
             #endregion
+
+            var data_points = new List<DataPoint>((int)(360 / 0.1));
+            for (var x = 0d; x <= 360; x += 0.1)
+            {
+                const double to_rad = Math.PI / 180;
+                var y = Math.Sin(x * to_rad);
+
+                data_points.Add(new DataPoint { XValue = x, YValue = y });
+            }
         }
     }
 }
