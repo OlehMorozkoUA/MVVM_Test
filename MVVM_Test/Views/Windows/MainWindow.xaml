@@ -7,6 +7,7 @@
         xmlns:vm="clr-namespace:MVVM_Test.ViewModels"
         xmlns:cmd="clr-namespace:MVVM_Test.Infrastructure.Commands"
         xmlns:l="clr-namespace:MVVM_Test"
+        xmlns:oxy="http://oxyplot.org/wpf"
         Title="{Binding Title}" 
         Height="450" Width="800">
     <Window.InputBindings>
@@ -32,6 +33,16 @@
             <MenuItem Header="Help">
                 <MenuItem Header="About"/>
             </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter="-1">
+                <MenuItem.Header>
+                    <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleLeft"/>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Command="{Binding ChangeTabIndexCommand}" CommandParameter="+1">
+                <MenuItem.Header>
+                    <fa:ImageAwesome Height="12" Icon="Regular_ArrowAltCircleRight"/>
+                </MenuItem.Header>
+            </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem MinWidth="150" MaxWidth="300">
@@ -41,7 +52,19 @@
                 <ProgressBar Width="160" Height="14" Value="30"/>
             </StatusBarItem>
         </StatusBar>
-        <TabControl>
+        <TabControl SelectedIndex="{Binding SelectedPageIndex}">
+            <TabItem Header="Graph">
+                <oxy:Plot>
+                    <oxy:Plot.Axes>
+                        <oxy:LinearAxis Position="Left"/>
+                        <oxy:LinearAxis Position="Bottom"/>
+                    </oxy:Plot.Axes>
+                    <oxy:LineSeries Color="Red"
+                                    ItemsSource="{Binding TestDataPoints}"
+                                    DataFieldX="XValue"
+                                    DataFieldY="YValue"/>
+                </oxy:Plot>
+            </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -74,6 +97,8 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Tab 2"></TabItem>
+            <TabItem Header="Tab 3"></TabItem>
+            <TabItem Header="Tab 4"></TabItem>
         </TabControl>
     </DockPanel>
 </Window>
